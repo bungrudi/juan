@@ -22,6 +22,7 @@ import { Altair } from "./components/altair/Altair";
 import ControlTray from "./components/control-tray/ControlTray";
 import cn from "classnames";
 import SystemPromptLoader from "./components/SystemPromptLoader";
+import MemoryHandler from "./components/MemoryHandler";
 import { LiveClientOptions } from "./types";
 
 const API_KEY = process.env.REACT_APP_GEMINI_API_KEY as string;
@@ -44,6 +45,7 @@ function App() {
     <div className="App">
       <LiveAPIProvider options={apiOptions}>
           <SystemPromptLoader />
+          <MemoryHandler />
         <div className="streaming-console">
           <SidePanel />
           <main>

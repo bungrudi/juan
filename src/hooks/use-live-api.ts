@@ -38,7 +38,8 @@ export function useLiveAPI(options: LiveClientOptions): UseLiveAPIResults {
   const client = useMemo(() => new GenAILiveClient(options), [options]);
   const audioStreamerRef = useRef<AudioStreamer | null>(null);
 
-  const [model, setModel] = useState<string>("models/gemini-2.0-flash-exp");
+  const DEFAULT_MODEL = process.env.REACT_APP_GEMINI_MODEL || "models/gemini-2.0-flash-exp";
+  const [model, setModel] = useState<string>(DEFAULT_MODEL);
   const [config, setConfig] = useState<LiveConnectConfig>({});
   const [connected, setConnected] = useState(false);
   const [volume, setVolume] = useState(0);
